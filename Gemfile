@@ -5,3 +5,5 @@ source "https://rubygems.org"
 gem 'tilt', '1.4.1'
 gem 'sinatra'
 gem 'sinatra-contrib'
+gem 'thin'
+gem 'foreman'
