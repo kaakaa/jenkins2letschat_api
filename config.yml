@@ -1,7 +1,8 @@
-lets_chat_url: "http://192.168.33.10:5000/messages"
-room_token: "550e71988dadf81c4defcf60"
-
-user_token: "NTUwZTcxNzY4ZGFkZjgxYzRkZWZjZjVmOjRjMzUyOGEwYmY5NjNiNjViYzg2NGM4MjlkODllZDkyMGMwOTNkZWVhYzAzZThjNA=="
-password: "testtest"
+lets_chat:
+  url: "http://192.168.33.10:5000/messages"
+  room: "550e71988dadf81c4defcf60"
+auth:
+  user: "NTUwZTcxNzY4ZGFkZjgxYzRkZWZjZjVmOjRjMzUyOGEwYmY5NjNiNjViYzg2NGM4MjlkODllZDkyMGMwOTNkZWVhYzAzZThjNA=="
+  pass: "testtest"
 
 message_template: "BUILD %s => %s:%s (%s)"

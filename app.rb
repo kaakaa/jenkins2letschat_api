@@ -36,17 +36,17 @@ class MainApp < Sinatra::Base
       build_url = json['build']['full_url']
 
       result = sprintf(settings.message_template, build_status, build_name, build_number, build_url)
-      post({"text" => result, "room" => settings.room_token}.to_json)
+      post({"text" => result, "room" => settings.lets_chat['room']}.to_json)
     end
 
     def post(json)
-      post_uri = URI.parse(settings.lets_chat_url)
+      post_uri = URI.parse(settings.lets_chat['url'])
       http = Net::HTTP.new(post_uri.host, post_uri.port)
 
       req = Net::HTTP::Post.new(post_uri.request_uri)
       req["Content-Type"] = "application/json"
       req.body = json 
-      req.basic_auth settings.user_token, settings.password 
+      req.basic_auth settings.auth['user'], settings.auth['pass']
       http.request(req)
     end
   end
