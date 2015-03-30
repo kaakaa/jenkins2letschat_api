@@ -25,7 +25,8 @@ class MainApp < Sinatra::Base
   end
 
   post '/notification' do
-  
+    json = JSON.parse request.body.read
+    post_to_letschat(json)
   end
 
   helpers do
@@ -44,7 +45,8 @@ class MainApp < Sinatra::Base
       http = Net::HTTP.new(post_uri.host, post_uri.port)
 
       req = Net::HTTP::Post.new(post_uri.request_uri)
-      req["Content-Type"] = "application/json"
+      req.add_field 'Accept', 'application/json'
+      req.add_field 'Content-Type', 'application/json'
       req.body = json 
       req.basic_auth settings.auth['user'], settings.auth['pass']
       http.request(req)
